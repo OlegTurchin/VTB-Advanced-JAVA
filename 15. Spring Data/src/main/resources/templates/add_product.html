@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid" style="padding: 0 150px">
+        <a class="navbar-brand">Product catalog</a>
+        <a class="navbar-brand">Add new product</a>
+    </div>
+</nav>
+<body>
+<form th:action="@{/products/add}"
+      th:object="${product}" method="post" class="form-horizontal">
+    <div style="padding: 25px 150px" class="input-group">
+
+        <span class="input-group-text"><i class="glyphicon glyphicon-user"></i></span>
+        <input th:field="${product.id}" placeholder="Product's id (*)" class="form-control"/>
+
+        <span class="input-group-text"><i class="glyphicon glyphicon-user"></i></span>
+        <input th:field="${product.title}" placeholder="Product's title (*)" class="form-control"/>
+
+        <span class="input-group-text"><i class="glyphicon glyphicon-user"></i></span>
+        <input th:field="${product.price}" placeholder="Product's price (*)" class="form-control"/>
+
+        <button type="submit" class="btn btn-success">Add product</button>
+    </div>
+</form>
+</body>
+</html>
